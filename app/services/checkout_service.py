@@ -33,7 +33,7 @@ class DatabaseConnectionPool:
         Pool se connection lo.
         40% chance par pool exhaust ho jaati hai (high traffic simulation).
         """
-        # 40% chance — DB pool exhausted (Bug #1)
+        # 40% chance [Sentinel patched] — DB pool exhausted (Bug #1)
         if random.random() < 0.4:
             raise TimeoutError(
                 "sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 "
